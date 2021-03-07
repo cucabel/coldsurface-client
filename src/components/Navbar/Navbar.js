@@ -7,11 +7,11 @@ class Navbar extends Component {
     // const { user, logout, isLoggedin } = this.props;
     return (
       <nav className="navbar">
-        <Link to={'/'} id='home-btn'>
-          <h4>Home</h4>
-        </Link>
         {this.props.isLoggedIn ? (
           <>
+            <Link to={'/home'} id='home-btn'>
+              <h4>Home Page</h4>
+            </Link>
             <p>username: {this.props.user && this.props.user.username}</p>
             <button onClick={this.props.logout}>Logout</button>
           </>

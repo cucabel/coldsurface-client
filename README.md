@@ -8,7 +8,7 @@ It a SaaS providing insights on employee and customer engagement and sentiment. 
 
 
 
-- **404:** it is shown when we try to access to an end point which doesn't exist
+- **404:** it is shown when we try to haccess to an end point which doesn't exist
 - **Signup:** anon can sign up in order to have access to the service
 - **Login:** signed up users can login and access to their profiles and dashboards
 - **Logout:** logged in users can logout in order to close the session

@@ -3,45 +3,47 @@ import axios from "axios";
 // THIS IS AN EXAMPLE THAT YOU CAN USE
 // TO CREATE A SERVICE FOR YOUR AXIOS CALLS
 
-class ExampleService {
+class StatisticsService {
   constructor() {
     // this.api  is a reusable axios request base containing the base url (baseURL)
     // of the API and the Headers options ( `withCredentials: true` )
     this.api = axios.create({
-      baseURL: "http://localhost:5000/api",
+      baseURL: "‪file:///C:/Users/Isabel/Desktop",
       withCredentials: true,
     });
   }
 
   getAll = () => {
-    const pr = this.api.get("/example");
+    const pr = this.api
+      .get("/stats.json")
+      .then((response) => response.data);
 
     return pr;
   };
 
-  getOne = (id) => {
-    const pr = this.api.get(`/example/${id}`);
+  // getOne = (id) => {
+  //   const pr = this.api.get(`/example/${id}`);
 
-    return pr;
-  };
+  //   return pr;
+  // };
 
-  create = (data) => {
-    const pr = this.api.post(`/example/${id}`, data);
+  // create = (data) => {
+  //   const pr = this.api.post(`/example/${id}`, data);
 
-    return pr;
-  };
+  //   return pr;
+  // };
 
-  deleteOne = (id) => {
-    const pr = this.api.delete(`/example/${id}`);
+  // deleteOne = (id) => {
+  //   const pr = this.api.delete(`/example/${id}`);
 
-    return pr;
-  };
+  //   return pr;
+  // };
 }
 
 // Create instance (object) containing all axios calls as methods
-const exampleService = new ExampleService();
+const statisticsService = new StatisticsService();
 
-export default exampleService;
+export default statisticsService;
 
 // Service is a set of methods abstracted and placed into a class, out of which we create one instance.
 // In the above case, all axios request calls are abstracted into methods.
