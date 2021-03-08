@@ -9,7 +9,7 @@ class Channel extends Component {
   render() {
     return (
       <div>
-        <p>{this.props.statistics}</p>
+        <p>{this.props.statistics[0].day}</p>
       </div>
     )
   }
