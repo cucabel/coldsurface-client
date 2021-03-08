@@ -1,14 +1,18 @@
-import React from 'react'
+// import { Link } from 'react-router-dom';
+import { statistics } from './../../context/statistics-context'
 
-import Dashboard from '../../components/Dashboard/Dashboard';
+// import Dashboard from '../../components/Dashboard/Dashboard';
 
-function Channel() {
-  return (
-    <div> 
-      <Dashboard />
-      <h1>Channel Page</h1>
-    </div>
-  )
+import React, { Component } from 'react'
+
+class Channel extends Component {
+  render() {
+    return (
+      <div>
+        <p>{this.props.statistics}</p>
+      </div>
+    )
+  }
 }
 
-export default Channel;
+export default statistics(Channel);

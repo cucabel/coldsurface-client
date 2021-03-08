@@ -8,14 +8,14 @@ class StatisticsService {
     // this.api  is a reusable axios request base containing the base url (baseURL)
     // of the API and the Headers options ( `withCredentials: true` )
     this.api = axios.create({
-      baseURL: "‪file:///C:/Users/Isabel/Desktop",
+      baseURL: "‪http://localhost:5000",
       withCredentials: true,
     });
   }
 
   getAll = () => {
     const pr = this.api
-      .get("/stats.json")
+      .get("/api/data")
       .then((response) => response.data);
 
     return pr;
