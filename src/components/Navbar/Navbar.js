@@ -6,9 +6,8 @@ class Navbar extends Component {
   render() {
     // const { user, logout, isLoggedin } = this.props;
     return (
-      // <div className="frozen">
-      <nav className="navbar justify-content-center bg-transparent">
-        <h4 className="navbar-brand">Coldsurface</h4>
+      <nav className="navbar justify-content-center">
+        <h4 className="navbar-brand"><i>Coldsurface</i></h4>
         {this.props.isLoggedIn ? (
           <>
             <Link to={'/home'} id='home-btn'>
@@ -29,7 +28,6 @@ class Navbar extends Component {
           </>
         )}
       </nav>
-      // </div>
     );
   }
 }

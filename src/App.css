@@ -15,7 +15,7 @@ html, body {
 .navbar { 
   display: flex;
   /* padding: 0px 20px; */
-  background-color: rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, .06);
 }
 
 button.navbar-button {
@@ -34,6 +34,16 @@ button.navbar-button {
 
 .frozen {
   background-image: url('./images/frozen.jpeg');
+  height: 90vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px;
+  position: relative;
+}
+
+.frozenlog {
+  background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url('./images/frozen.jpeg');
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;

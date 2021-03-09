@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { withAuth } from './../../context/auth-context';
 
 class Signup extends Component {
-  state = { username: "", password: "" };
+  state = { username: "", email: "", password: "" };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { username, password } = this.state;
+    const { username, email, password } = this.state;
     
-    this.props.signup( username, password );
+    this.props.signup( username, email, password );
   };
 
   handleChange = event => {
@@ -18,13 +18,11 @@ class Signup extends Component {
   };
 
   render() {
-    const { username, password } = this.state;
+    const { username, email, password } = this.state;
     return (
-      <div>
+      <div className="frozenlog">
         <div className="row justify-content-center my-3">
-          <a className="navbar-brand text-center" href="index - Copy.html">
-            Sign Up
-          </a>
+          <Link className="navbar-brand text-center" to={"/"} ><b>Coldsurface</b></Link>
         </div>
 
         <div className="container mb-4">
@@ -32,33 +30,28 @@ class Signup extends Component {
             <div className="form-row justify-content-center">
               <div className="col-sm-2 col-md-3 col-lg-4"></div>
               <div className="col-sm-8 col-md-6 col-lg-4">
-                <div className="container py-4 mb-4 border">
+                <div className="container py-4 mb-4 border border-light">
                   <div className="form-group">
-                    <label for="inputEmail">User name:</label>
-                    <input type="text" name="username" className="form-control" id="inputName" value={username} onChange={this.handleChange} />
+                    <label for="inputName">User name:</label>
+                    <input type="text" name="username" className="form-control" id="inputName" placeholder="Enter name" value={username} onChange={this.handleChange} />
                     <div className="invalid-feedback" id="errorName"></div>
                   </div>
-                  {/* <div className="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-                  </div> */}
 
-                  {/* <div className="form-group">
+                  <div className="form-group">
                     <label for="inputEmail">Email:</label>
-                    <input type="text" name="inputEmail" className="form-control" id="inputEmail" />
+                    <input type="email" name="inputEmail" className="form-control" id="inputEmail" placeholder="Enter email" value={email} onChange={this.handleChange} />
                     <div className="invalid-feedback" id="errorEmail"></div>
-                  </div> */}
+                  </div>
 
                   <div className="form-group">
                     <label for="inputPassword">Password:</label>
-                    <input type="password" name="password" className="form-control" id="inputPassword" value={password} onChange={this.handleChange} />
+                    <input type="password" name="password" className="form-control" id="inputPassword" placeholder="Enter password" value={password} onChange={this.handleChange} />
                     <div className="invalid-feedback" id="errorPassword"></div>
                   </div>
 
-                  <input type="submit" value="Signup" className="btn btn-block btn-warning my-4" />
+                  <input type="submit" value="Signup" className="btn btn-block btn-light my-4" />
 
-                  <p className="text-center">Already have an account? <Link to={"/login"}> Login</Link> </p>
+                  <p className="text-center"> Already have an account? <Link to={"/login"}><b>Login</b></Link> </p>
      
                 </div>
               </div>

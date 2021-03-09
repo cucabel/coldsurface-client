@@ -4,6 +4,7 @@ import { statistics } from "./../../context/statistics-context";
 import Dashboard from "../../components/Dashboard/Dashboard";
 
 import React, { Component } from "react";
+import Navbar from "../../components/Navbar/Navbar";
 
 class Channel extends Component {
   state = {
@@ -23,6 +24,7 @@ class Channel extends Component {
     const data = this.props.statistics;
     return (
       <div>
+        <Navbar />
         <div>
           <label htmlFor="Workspace">Channel:</label>
           <select id="workspace" name="workspace" onChange={this.handleInput}>
