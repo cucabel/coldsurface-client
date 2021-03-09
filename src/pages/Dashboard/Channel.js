@@ -7,7 +7,7 @@ import React, { Component } from "react";
 
 class Channel extends Component {
   state = {
-    workspace: "",
+    workspace: "KAGGLE",
   };
 
   handleInput = (event) => {
