@@ -5,6 +5,8 @@ import App from './App';
 
 import { AuthProvider } from './context/auth-context';
 import { StatisticsProvider } from './context/statistics-context';
+import 'bootstrap/dist/css/bootstrap.css';
+import './stylesheets/style.css'
 
 ReactDOM.render(
   <Router>

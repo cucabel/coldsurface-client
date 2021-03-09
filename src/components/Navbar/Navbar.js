@@ -6,7 +6,9 @@ class Navbar extends Component {
   render() {
     // const { user, logout, isLoggedin } = this.props;
     return (
-      <nav className="navbar">
+      // <div className="frozen">
+      <nav className="navbar justify-content-center bg-transparent">
+        <h4 className="navbar-brand">Coldsurface</h4>
         {this.props.isLoggedIn ? (
           <>
             <Link to={'/home'} id='home-btn'>
@@ -27,8 +29,24 @@ class Navbar extends Component {
           </>
         )}
       </nav>
+      // </div>
     );
   }
 }
 
 export default withAuth(Navbar);
+
+{/* <ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul> */}

@@ -1,26 +1,52 @@
 html, body {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .App {
   padding: 20px;;
 }
 
-nav.navbar { 
+.appcontainer {
+  margin: 0;
+}
+
+.navbar { 
   display: flex;
-  padding: 0px 20px;
-  background: #686de0; 
+  /* padding: 0px 20px; */
+  background-color: rgba(0, 0, 0, .1);
 }
 
 button.navbar-button {
-  padding: 5px 20px;
+  /* padding: 5px 20px; */
   width: 100px;
-  margin: 15px 10px;
-  border-radius: 3px;
+  margin: 5px 10px;
+  border: none;
+  background-color: transparent;
+  /* border-radius: 3px; */
 }
 
 #home-btn {
   color: white;
   text-decoration: none;
+}
+
+.frozen {
+  background-image: url('./images/frozen.jpeg');
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px;
+  position: relative;
+}
+
+.navbar-brand {
+  margin: 5px 10px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto; 
 }

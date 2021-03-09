@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { statistics } from '../../context/statistics-context';
 
-import Dashboard from '../../components/Dashboard/Dashboard';
-
-function Week() {
-  return (
-    <div>
-        <Dashboard /> 
-      <h1>Week Page</h1>
-    </div>
-  )
+class Week extends Component {
+  render() {
+    return (
+      <div>
+        {/* <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div> */}
+      </div>
+    )
+  }
 }
 
-export default Week;
+export default statistics(Week);

@@ -20,7 +20,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 class App extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="appcontainer"> 
         <Navbar />
 
         <Switch>
@@ -43,4 +43,6 @@ class App extends Component {
 export default App;
 
 /*          <Route exact path="/" component={Home} />
+
+            I changed the className container per appcontainer
 */

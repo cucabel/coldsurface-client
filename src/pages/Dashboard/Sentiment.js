@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-import Dashboard from '../../components/Dashboard/Dashboard';
+import { statistics } from '../../context/statistics-context';
 
-function Sentiment() {
-  return (
-    <div> 
-      <Dashboard />
-      <h1>Sentiment Page</h1>
-    </div>
-  )
+class Sentiment extends Component {
+  render() {
+    return (
+      <div>
+        
+      </div>
+    )
+  }
 }
 
-export default Sentiment;
+export default statistics(Sentiment);
