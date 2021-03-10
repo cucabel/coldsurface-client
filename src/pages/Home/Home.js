@@ -2,10 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import line from './../../images/line.png';
-import bar from './../../images/bar.jpg';
 import donut from './../../images/donut.png';
 
-import {Container, Row, Col} from 'react-bootstrap'
+import {Container, Row, Col} from 'react-bootstrap';
 
 function Home() {
   return (
@@ -25,7 +24,7 @@ function Home() {
 
           <Col xs={12} sm={12} md={4}>
           <Link to="/channel">
-            <img className="barimg img-fluid" src={bar} alt="barimg" />
+            <h1>23%</h1>
             <p>The different sentiments of the workspaces' channels of your slack</p>
           </Link>
           </Col>

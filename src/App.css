@@ -47,7 +47,7 @@ button.navbar-button {
   position: relative;
 }
 
-.frozenlog {
+.frozenbackground {
   background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url('./images/frozen.jpeg');
   height: 100vh;
   background-position: center;
@@ -87,7 +87,7 @@ button.navbar-button {
 }
 
 .home {
-  background-color: salmon;
+  background-color: rgba(0, 0, 0, .06);
   /* height: 100vh; not scroll down */
   height: 100%;
   min-height: 100vh;
@@ -103,4 +103,8 @@ button.navbar-button {
   min-height: 100vh;
   display: flex;
   align-items: center;
+}
+
+#loginbutton {
+  width: 100%;
 }
