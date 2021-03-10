@@ -1,7 +1,11 @@
 html, body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .App {
@@ -16,6 +20,7 @@ html, body {
   display: flex;
   /* padding: 0px 20px; */
   background-color: rgba(0, 0, 0, .06);
+  justify-content: flex-end;
 }
 
 button.navbar-button {
@@ -59,4 +64,43 @@ button.navbar-button {
 .img-fluid {
   max-width: 100%;
   height: auto; 
+}
+
+.logincontainer {
+  width: 300px;
+  margin: auto;
+}
+
+.lineimg {
+  width: 480px;
+  margin: 20px 20px;
+}
+
+.barimg {
+  width: 320px;
+  margin: 20px 20px;
+}
+
+.donutimg {
+  width: 200px;
+  margin: 20px 20px;
+}
+
+.home {
+  background-color: salmon;
+  /* height: 100vh; not scroll down */
+  height: 100%;
+  min-height: 100vh;
+}
+
+.homecontainer {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.rowcontainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }

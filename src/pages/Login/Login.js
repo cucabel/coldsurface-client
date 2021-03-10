@@ -32,6 +32,7 @@ class Login extends Component {
                 <div className="col-sm-2 col-md-3 col-lg-4"></div>
                 <div className="col-sm-8 col-md-6 col-lg-4">
                   <div className="container py-4 mb-4 border border-light">
+                  
                     <div className="form-group">
                       <label for="inputEmail">Username:</label>
                       <input type="text" name="username" className="form-control" id="inputEmail2" placeholder="Enter name" value={username} onChange={this.handleChange} />
@@ -50,13 +51,14 @@ class Login extends Component {
                 <div className="col-sm-2 col-md-3 col-lg-4"></div>
 
                 <div class="col-sm-2 col-md-3 col-lg-4"></div>
-                  <div class="col-sm-8 col-md-6 col-lg-4">
-                    <p className="text-center">Already have an account?
-                    <br></br>
-                    <br></br>
-                    <Link type="button" class="btn btn-block btn-light" role="button" to={"/signup"}>Sign Up</Link> </p>
-                  </div>
+                <div class="col-sm-8 col-md-6 col-lg-4">
+                  <p className="text-center">Already have an account?
+                  <br></br>
+                  <br></br>
+                  <Link type="button" class="btn btn-block btn-light" role="button" to={"/signup"}>Sign Up</Link> </p>
+                </div>
                 <div class="col-sm-2 col-md-3 col-lg-4"></div>
+
               </div>
             </form>
           </div>
