@@ -39,6 +39,7 @@ class Channel extends Component {
               </Dropdown.Item>
             ))}
           </DropdownButton>
+          <Dashboard {data} />
         </div>
       </div>
     );
@@ -46,6 +47,8 @@ class Channel extends Component {
 }
 
 export default statistics(Channel);
+
+// <Dashboard data={data.filter((el) => el.channel === this.state.channel)} />;
 
 // <select id="channel" name="channel" onChange={this.handleInput}>
 // {channels.map((element) => (

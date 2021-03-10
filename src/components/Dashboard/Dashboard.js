@@ -14,7 +14,7 @@ function Dashboard(props) {
   const data = props.data;
   return (
     <div>
-      <p>Dashboard response</p>
+      <p>Dashboard response {data[0].day}</p>
 
       <LineChart
         width={500}
