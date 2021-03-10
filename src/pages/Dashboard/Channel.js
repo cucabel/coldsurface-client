@@ -5,14 +5,18 @@ import Dashboard from "../../components/Dashboard/Dashboard";
 
 import React, { Component } from "react";
 import Navbar from "../../components/Navbar/Navbar";
+import { Dropdown, DropdownButton } from "react-bootstrap";
+import { RadialBarChart } from "recharts";
 
 class Channel extends Component {
   state = {
-    workspace: "KAGGLE",
+    workspace: "",
+    channel: "",
   };
 
   handleInput = (event) => {
     let { value, name, type } = event.target; //  value="asdfasdf"  name="director"
+    console.log(value, type, name);
     if (type === "checkbox") {
       value = event.target.checked;
     }
@@ -21,20 +25,22 @@ class Channel extends Component {
   };
 
   render() {
-    const data = this.props.statistics;
+    const data = this.props.statistics.raw;
+    const channels = this.props.statistics.channels;
     return (
       <div>
         <Navbar />
         <div>
-          <label htmlFor="Workspace">Channel:</label>
-          <select id="workspace" name="workspace" onChange={this.handleInput}>
-            <option value="KAGGLE">KAGGLE</option>
-            <option value="ih-bcn-web-oct2020">ih-bcn-web-oct2020</option>
-            <option value="ih-bcn-web-jan2021">ih-bcn-web-jan2021</option>
-          </select>
-          <Dashboard
-            data={data.filter((el) => el.workspace === this.state.workspace)}
-          />
+          <DropdownButton
+            id="channel"
+            name="channel"
+            title="channel"
+            onChange={this.handleInput}
+          >
+            {channels.map((element) => (
+              <Dropdown.Item title={element.name}>{element.name}</Dropdown.Item>
+            ))}
+          </DropdownButton>
         </div>
       </div>
     );
@@ -42,3 +48,32 @@ class Channel extends Component {
 }
 
 export default statistics(Channel);
+
+// <select id="channel" name="channel" onChange={this.handleInput}>
+// {channels.map((element) => (
+//   <option> {element.name} </option>
+// ))}
+// </select>
+
+// <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+//   <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+// </DropdownButton>
+
+// <select id="channel" name="channel" onChange={this.handleInput}>
+//   {channels.map((element) => (
+//     <option> {element.name} </option>
+//   ))}
+// </select>
+
+// <Dropdown.Item title={element.name}> {element.name} </Dropdown.Item>
+
+// <select id="channel" name="channel" onChange={this.handleInput}>
+// {channels.map((element) => (
+//   <option> {element.name} </option>
+// ))}
+// </select>
+
+// From state: {this.state.channel}
+// <br />
+// {channels[0].name}
+// <br />
