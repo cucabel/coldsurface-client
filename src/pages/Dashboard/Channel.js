@@ -14,14 +14,9 @@ class Channel extends Component {
     channel: "",
   };
 
-  handleInput = (event) => {
-    let { value, name, type } = event.target; //  value="asdfasdf"  name="director"
-    console.log(value, type, name);
-    if (type === "checkbox") {
-      value = event.target.checked;
-    }
-    this.setState({ [name]: value });
-    console.log(name, value);
+  handleInput = (e) => {
+    this.setState({ channel: e });
+    console.log("channel :", e);
   };
 
   render() {
@@ -30,15 +25,18 @@ class Channel extends Component {
     return (
       <div>
         <Navbar />
+        <p>{this.state.channel}</p>
         <div>
           <DropdownButton
             id="channel"
             name="channel"
             title="channel"
-            onChange={this.handleInput}
+            onSelect={this.handleInput}
           >
             {channels.map((element) => (
-              <Dropdown.Item title={element.name}>{element.name}</Dropdown.Item>
+              <Dropdown.Item eventKey={element.name}>
+                {element.name}
+              </Dropdown.Item>
             ))}
           </DropdownButton>
         </div>
@@ -77,3 +75,13 @@ export default statistics(Channel);
 // <br />
 // {channels[0].name}
 // <br />
+
+// handleInput = (event) => {
+//   let { value, name, type } = event.target; //  value="asdfasdf"  name="director"
+//   console.log(value, type, name);
+//   if (type === "checkbox") {
+//     value = event.target.checked;
+//   }
+//   this.setState({ [name]: value });
+//   console.log(name, value);
+// };
