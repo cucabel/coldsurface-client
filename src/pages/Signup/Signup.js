@@ -39,7 +39,16 @@ class Signup extends Component {
 
                   <div className="form-group">
                     <label for="inputEmail">Email:</label>
-                    <input type="email" name="inputEmail" className="form-control" id="inputEmail" placeholder="Enter email" value={email} onChange={this.handleChange} />
+                    <input 
+                      type="email" 
+                      name="email"
+                       className="form-control" 
+                       id="inputEmail" 
+                       placeholder="Enter email" 
+                       value={email}
+                        onChange={this.handleChange}
+
+                        />
                     <div className="invalid-feedback" id="errorEmail"></div>
                   </div>
 

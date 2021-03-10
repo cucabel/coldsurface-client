@@ -6,15 +6,17 @@ class Navbar extends Component {
   render() {
     // const { user, logout, isLoggedin } = this.props;
     return (
-      <nav className="navbar justify-content-center">
+      <nav className="navbar">
         <h4 className="navbar-brand"><i>Coldsurface</i></h4>
         {this.props.isLoggedIn ? (
           <>
             <Link to={'/home'} id='home-btn'>
-              <h4>Home Page</h4>
+              <h4>Main Page</h4>
             </Link>
-            <p>username: {this.props.user && this.props.user.username}</p>
-            <button onClick={this.props.logout}>Logout</button>
+            <p>username: <Link to={'/profile'}>{this.props.user && this.props.user.username}</Link></p>
+            <Link onClick={this.props.logout}>
+              <button className="navbar-button">Logout</button>{' '}
+            </Link>
           </>
         ) : (
           <>
