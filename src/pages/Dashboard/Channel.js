@@ -14,7 +14,12 @@ class Channel extends Component {
     channel: "",
   };
 
-  handleInput = (e) => {
+  handleWorkSpaceInput = (e) => {
+    this.setState({ workspace: e });
+    console.log("workspace :", e);
+  };
+
+  handleChannelInput = (e) => {
     this.setState({ channel: e });
     console.log("channel :", e);
   };
@@ -33,10 +38,22 @@ class Channel extends Component {
         <p>{this.state.channel}</p>
         <div>
           <DropdownButton
+            id="workspace"
+            name="workspace"
+            title="workspace"
+            onSelect={this.handleWorkSpaceInput}
+          >
+            {channels.map((element) => (
+              <Dropdown.Item eventKey={element.workspace}>
+                {element.workspace}
+              </Dropdown.Item>
+            ))}
+          </DropdownButton>
+          <DropdownButton
             id="channel"
             name="channel"
             title="channel"
-            onSelect={this.handleInput}
+            onSelect={this.handleChannelInput}
           >
             {channels.map((element) => (
               <Dropdown.Item eventKey={element.channelId}>
@@ -54,7 +71,7 @@ class Channel extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} />
+                <Barchart data={filteredData} dimension="sentiment" />
               </Col>
               <Col
                 className="BarChartCol"
@@ -64,29 +81,7 @@ class Channel extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} />
-              </Col>
-            </Row>
-            <Row className="BarChartRow">
-              <Col
-                className="BarChartCol"
-                xs={12}
-                sm={12}
-                md={12}
-                lg={12}
-                xl={6}
-              >
-                <Barchart data={filteredData} />
-              </Col>
-              <Col
-                className="BarChartCol"
-                xs={12}
-                sm={12}
-                md={12}
-                lg={12}
-                xl={6}
-              >
-                <Barchart data={filteredData} />
+                <Barchart data={filteredData} dimension="joy" />
               </Col>
             </Row>
             <Row className="BarChartRow">
@@ -98,7 +93,7 @@ class Channel extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} />
+                <Barchart data={filteredData} dimension="anger" />
               </Col>
               <Col
                 className="BarChartCol"
@@ -108,7 +103,29 @@ class Channel extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} />
+                <Barchart data={filteredData} dimension="fear" />
+              </Col>
+            </Row>
+            <Row className="BarChartRow">
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart data={filteredData} dimension="sadness" />
+              </Col>
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart data={filteredData} dimension="disgust" />
               </Col>
             </Row>
           </Container>
@@ -119,47 +136,3 @@ class Channel extends Component {
 }
 
 export default statistics(Channel);
-// <Dashboard
-// data={data.filter((el) => el.channel === this.state.channel)}
-// />
-
-// <Dashboard data={data.filter((el) => el.channel === this.state.channel)} />;
-
-// <select id="channel" name="channel" onChange={this.handleInput}>
-// {channels.map((element) => (
-//   <option> {element.name} </option>
-// ))}
-// </select>
-
-// <DropdownButton id="dropdown-basic-button" title="Dropdown button">
-//   <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-// </DropdownButton>
-
-// <select id="channel" name="channel" onChange={this.handleInput}>
-//   {channels.map((element) => (
-//     <option> {element.name} </option>
-//   ))}
-// </select>
-
-// <Dropdown.Item title={element.name}> {element.name} </Dropdown.Item>
-
-// <select id="channel" name="channel" onChange={this.handleInput}>
-// {channels.map((element) => (
-//   <option> {element.name} </option>
-// ))}
-// </select>
-
-// From state: {this.state.channel}
-// <br />
-// {channels[0].name}
-// <br />
-
-// handleInput = (event) => {
-//   let { value, name, type } = event.target; //  value="asdfasdf"  name="director"
-//   console.log(value, type, name);
-//   if (type === "checkbox") {
-//     value = event.target.checked;
-//   }
-//   this.setState({ [name]: value });
-//   console.log(name, value);
-// };
