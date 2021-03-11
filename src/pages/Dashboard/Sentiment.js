@@ -11,7 +11,6 @@ import { RadialBarChart } from "recharts";
 class Sentiment extends Component {
   state = {
     workspace: "Select Workspace",
-    channel: "Select Channel",
   };
 
   handleWorkSpaceInput = (e) => {
@@ -19,43 +18,49 @@ class Sentiment extends Component {
     console.log("workspace :", e);
   };
 
-  handleChannelInput = (e) => {
-    this.setState({ channel: e });
-    console.log("channel :", e);
-  };
-
-  getUniqueWorkSpaces = (channels) => {
-    // console.log(channels);   // TO BE FIXED
-    // const uniqueWPs = channels.filter(
-    //   (v, i, a) => a.indexOf(v.workspace) === i
-    // );
-    // //.map((element) => element.workspace);
-    // console.log(uniqueWPs);
-    // return uniqueWPs;
+  getUniqueWorkSpaces = () => {
     return ["KAGGLE", "ih-bcn-web-jan2021", "ih-bcn-web-oct2020"];
   };
 
   render() {
     const data = this.props.statistics.raw;
+    const channels = this.props.statistics.channels;
+
     if (!data) return <p>Loading...</p>;
-    console.log(data.slice(0, 2)); // ih-bcn-web-oct2020 channel and workspace
-    const channels = this.props.statistics.channels.filter(
+
+    const workSpaceData = data.filter(
       (el) => el.workspace === this.state.workspace
     );
-    const filteredData = data.filter((el) => el.channel === this.state.channel);
-    // .slice(0, 14);
+
+    const channelWS = channels.filter(
+      (el) => el.workspace === this.state.workspace
+    );
+
+    const generalData = workSpaceData.filter(
+      (el) =>
+        el.channel === channelWS.find((obj) => obj.name == "general").channelId
+    );
+    const randomData = workSpaceData.filter(
+      (el) =>
+        el.channel === channelWS.find((obj) => obj.name == "random").channelId
+    );
+    const helpData = workSpaceData.filter(
+      (el) =>
+        el.channel === channelWS.find((obj) => obj.name == "help").channelId
+    );
 
     return (
       <div>
         <Navbar />
         <div>
+          {this.state.workspace}
           <DropdownButton
             id="workspace"
             name="workspace"
             title={this.state.workspace}
             onSelect={this.handleWorkSpaceInput}
           >
-            {this.getUniqueWorkSpaces(channels).map((element) => (
+            {this.getUniqueWorkSpaces().map((element) => (
               <Dropdown.Item eventKey={element}>{element}</Dropdown.Item>
             ))}
           </DropdownButton>
@@ -69,7 +74,11 @@ class Sentiment extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} dimension="sentiment" />
+                <Barchart
+                  data={workSpaceData}
+                  dimension="numberOfMessages"
+                  title="Total Work Space"
+                />
               </Col>
               <Col
                 className="BarChartCol"
@@ -79,29 +88,11 @@ class Sentiment extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} dimension="joy" />
-              </Col>
-            </Row>
-            <Row className="BarChartRow">
-              <Col
-                className="BarChartCol"
-                xs={12}
-                sm={12}
-                md={12}
-                lg={12}
-                xl={6}
-              >
-                <Barchart data={filteredData} dimension="anger" />
-              </Col>
-              <Col
-                className="BarChartCol"
-                xs={12}
-                sm={12}
-                md={12}
-                lg={12}
-                xl={6}
-              >
-                <Barchart data={filteredData} dimension="fear" />
+                <Barchart
+                  data={workSpaceData}
+                  dimension="sentiment"
+                  title="Total Work Space"
+                />
               </Col>
             </Row>
             <Row className="BarChartRow">
@@ -113,7 +104,11 @@ class Sentiment extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} dimension="sadness" />
+                <Barchart
+                  data={generalData}
+                  dimension="numberOfMessages"
+                  title="general channel"
+                />
               </Col>
               <Col
                 className="BarChartCol"
@@ -123,7 +118,67 @@ class Sentiment extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} dimension="disgust" />
+                <Barchart
+                  data={generalData}
+                  dimension="sentiment"
+                  title="general channel"
+                />
+              </Col>
+            </Row>
+            <Row className="BarChartRow">
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart
+                  data={randomData}
+                  dimension="numberOfMessages"
+                  title="random"
+                />
+              </Col>
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart
+                  data={randomData}
+                  dimension="sentiment"
+                  title="random"
+                />
+              </Col>
+            </Row>
+            <Row className="BarChartRow">
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart
+                  data={helpData}
+                  dimension="numberOfMessages"
+                  title="help"
+                />
+              </Col>
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart data={helpData} dimension="sentiment" title="help" />
               </Col>
             </Row>
           </Container>
