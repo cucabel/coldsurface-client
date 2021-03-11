@@ -10,8 +10,8 @@ import { RadialBarChart } from "recharts";
 
 class Channel extends Component {
   state = {
-    workspace: "",
-    channel: "",
+    workspace: "Select Workspace",
+    channel: "Select Channel",
   };
 
   handleWorkSpaceInput = (e) => {
@@ -42,21 +42,17 @@ class Channel extends Component {
     const channels = this.props.statistics.channels.filter(
       (el) => el.workspace === this.state.workspace
     );
-    const filteredData = data
-      .filter((el) => el.channel === this.state.channel)
-      .slice(0, 14);
+    const filteredData = data.filter((el) => el.channel === this.state.channel);
+    // .slice(0, 14);
 
     return (
       <div>
         <Navbar />
-        <p>
-          {this.state.channel} {this.state.workspace}
-        </p>
         <div>
           <DropdownButton
             id="workspace"
             name="workspace"
-            title="workspace"
+            title={this.state.workspace}
             onSelect={this.handleWorkSpaceInput}
           >
             {this.getUniqueWorkSpaces(channels).map((element) => (
@@ -66,7 +62,7 @@ class Channel extends Component {
           <DropdownButton
             id="channel"
             name="channel"
-            title="channel"
+            title={this.state.channel}
             onSelect={this.handleChannelInput}
           >
             {channels.map((element) => (
