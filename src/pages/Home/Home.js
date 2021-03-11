@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import Navbar from '../../components/Navbar/Navbar';
+import Navbar2 from '../../components/Navbar/Navbar';
 import line from './../../images/line.png';
 import number from './../../images/Porcentaje.png'
 import donut from './../../images/donut.png';
@@ -9,14 +9,14 @@ import {Container, Row, Col} from 'react-bootstrap';
 
 function Home() {
   return (
-    <div className="home"> 
-      <Navbar />
+    <div className="home">
+      <Navbar2 />
 
       <Container className="homecontainer">
 
         <Row className="rowcontainer">
 
-          <Col xs={12} sm={12} md={4} lg={4}>
+          <Col xs={12} sm={12} md={4} lg={4} >
               <Link to="/week">
             <div className="article-image">
                 <img className="lineimg img-fluid" src={line} alt="lineimg" />

@@ -1,14 +1,44 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from './../../context/auth-context';
-import logout from './../../images/exit.png';
-import home from './../../images/main.png';
-import perfil from './../../images/profile.png';
+import {Navbar, Nav} from 'react-bootstrap';
+// import logout from './../../images/exit.png';
+// import home from './../../images/main.png';
+// import perfil from './../../images/profile.png';
 
-class Navbar extends Component {
+class Navbar2 extends Component {
   render() {
     // const { user, logout, isLoggedin } = this.props;
     return (
+      this.props.isLoggedIn ? (
+          <Navbar className="navbar2">
+            <Navbar.Brand>Coldsurface</Navbar.Brand>
+            <Nav className="mr-auto">
+              <Nav.Link href='/profile'>{this.props.user && this.props.user.username}</Nav.Link>
+              <Nav.Link href='/home' id='home-btn'>
+                Dahboards
+              </Nav.Link>
+              <Nav.Link onClick={this.props.logout}>
+                Logout
+              </Nav.Link>
+            </Nav>
+          </Navbar>
+        ) : (
+          <Navbar className="navbar2">
+            <Navbar.Brand>Coldsurface</Navbar.Brand>
+            <Nav className="mr-auto">
+              <Nav.Link href='/login'>Login</Nav.Link>
+              <Nav.Link href='/signup'>Sign Up</Nav.Link>
+            </Nav>
+          </Navbar>
+        )
+    );
+  }
+}
+
+export default withAuth(Navbar2);
+
+/* return (
       <nav className="navbar2">
         <h4 className="navbar-brand"><i>Coldsurface</i></h4>
         {this.props.isLoggedIn ? (
@@ -33,8 +63,4 @@ class Navbar extends Component {
           </>
         )}
       </nav>
-    );
-  }
-}
-
-export default withAuth(Navbar);
+    );*/
