@@ -12,6 +12,7 @@ class Channel extends Component {
   state = {
     workspace: "Select Workspace",
     channel: "Select Channel",
+    channelName: "",
   };
 
   handleWorkSpaceInput = (e) => {
@@ -20,7 +21,9 @@ class Channel extends Component {
   };
 
   handleChannelInput = (e) => {
-    this.setState({ channel: e });
+    const channels = this.props.statistics.channels;
+    const channelName = channels.find((el) => el.channelId === e).name;
+    this.setState({ channel: e, channelName: channelName });
     console.log("channel :", e);
   };
 
@@ -62,7 +65,7 @@ class Channel extends Component {
           <DropdownButton
             id="channel"
             name="channel"
-            title={this.state.channel}
+            title={this.state.channelName}
             onSelect={this.handleChannelInput}
           >
             {channels.map((element) => (
