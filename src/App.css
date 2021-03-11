@@ -16,17 +16,18 @@ html, body {
   margin: 0;
 }
 
-.navbar { 
-  display: flex;
-  /* padding: 0px 20px; */
+.navbar2 { 
+  height: 66px;;
   background-color: rgba(0, 0, 0, .06);
+  padding: 10px;
+  display: flex;
   justify-content: flex-end;
 }
 
 button.navbar-button {
   /* padding: 5px 20px; */
-  width: 100px;
-  margin: 5px 10px;
+  width: 30px;
+  margin: 5px 15px;
   border: none;
   background-color: transparent;
   /* border-radius: 3px; */
@@ -59,6 +60,8 @@ button.navbar-button {
 
 .navbar-brand {
   margin: 5px 10px;
+  display: flex;
+  align-content: center;
 }
 
 .img-fluid {
@@ -72,18 +75,15 @@ button.navbar-button {
 }
 
 .lineimg {
-  width: 480px;
-  margin: 20px 20px;
-}
-
-.barimg {
-  width: 320px;
-  margin: 20px 20px;
+  height: 200px;
 }
 
 .donutimg {
   width: 200px;
-  margin: 20px 20px;
+}
+
+.numberimg {
+  width: 400px;
 }
 
 .home {
@@ -107,4 +107,38 @@ button.navbar-button {
 
 #loginbutton {
   width: 100%;
+}
+
+#logouticon {
+  width: 30px;
+}
+
+#homeicon {
+  width: 32px;
+}
+
+.profile {
+  margin-top: 5px;
+}
+
+.article-image {
+  height: 270px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.article-image img {
+  width: auto;
+  height: 250px;
+}
+
+.article-text {
+  height: 100px;
+  text-align: justify;
+  text-justify: distribute;
+}
+
+#number {
+  font-size: 10em;
 }

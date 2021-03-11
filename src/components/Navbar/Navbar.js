@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from './../../context/auth-context';
+import logout from './../../images/exit.png';
+import home from './../../images/main.png';
+import perfil from './../../images/profile.png';
 
 class Navbar extends Component {
   render() {
     // const { user, logout, isLoggedin } = this.props;
     return (
-      <nav className="navbar">
+      <nav className="navbar2">
         <h4 className="navbar-brand"><i>Coldsurface</i></h4>
         {this.props.isLoggedIn ? (
           <>
+            <Link className="profile" to={'/profile'}>{this.props.user && this.props.user.username}</Link>
             <Link to={'/home'} id='home-btn'>
-              <h4>Main Page</h4>
+              <button className="navbar-button"><img id="homeicon" src={home} alt="homeicon"></img></button>{' '}
             </Link>
-            <p>username: <Link to={'/profile'}>{this.props.user && this.props.user.username}</Link></p>
             <Link onClick={this.props.logout}>
-              <button className="navbar-button">Logout</button>{' '}
+            <button className="navbar-button"><img id="logouticon" src={logout} alt="logouticon"></img></button>{' '}
             </Link>
           </>
         ) : (
