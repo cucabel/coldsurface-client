@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from './../../context/auth-context';
+import logout from './../../images/exit.png';
+import home from './../../images/main.png';
+import perfil from './../../images/profile.png';
 
 class Navbar extends Component {
   render() {
     // const { user, logout, isLoggedin } = this.props;
     return (
-      <nav className="navbar">
+      <nav className="navbar2">
+        <h4 className="navbar-brand"><i>Coldsurface</i></h4>
         {this.props.isLoggedIn ? (
           <>
+            <Link className="profile" to={'/profile'}>{this.props.user && this.props.user.username}</Link>
             <Link to={'/home'} id='home-btn'>
-              <h4>Home Page</h4>
+              <button className="navbar-button"><img id="homeicon" src={home} alt="homeicon"></img></button>{' '}
             </Link>
-            <p>username: {this.props.user && this.props.user.username}</p>
-            <button onClick={this.props.logout}>Logout</button>
+            <Link onClick={this.props.logout}>
+            <button className="navbar-button"><img id="logouticon" src={logout} alt="logouticon"></img></button>{' '}
+            </Link>
           </>
         ) : (
           <>
@@ -32,3 +38,18 @@ class Navbar extends Component {
 }
 
 export default withAuth(Navbar);
+
+{/* <ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul> */}

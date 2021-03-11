@@ -8,9 +8,14 @@ class AuthService {
     });
   }
 
-  signup(username, password) {
+  // signup(username, password) {
+  //     withCredentials: true
+  //   });
+  // }
+
+  signup(username, email, password) {
     const pr = this.auth
-      .post("/auth/signup", { username, password })
+      .post("/auth/signup", { username, email, password })
       .then((response) => response.data);
     // .then(({ data }) => data); // Shorter way of `.then((response) => response.data);`
 

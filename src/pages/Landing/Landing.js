@@ -1,9 +1,11 @@
 import React from 'react'
+import Navbar from '../../components/Navbar/Navbar';
 
 function Landing() {
   return (
-    <div> 
-      <h1>Landing Page</h1>
+    <div className="appcontainer"> 
+        <Navbar />
+        <div className="frozen"></div>
     </div>
   )
 }

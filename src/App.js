@@ -13,15 +13,15 @@ import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 
 // Components
-import Navbar from './components/Navbar/Navbar';
+// import Navbar from './components/Navbar/Navbar';
 import AnonRoute from './components/AnonRoute/AnonRoute';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <Navbar />
+      <div className="appcontainer"> 
+        {/* <Navbar /> */}
 
         <Switch>
           <Route exact path="/" component={Landing} />
@@ -43,4 +43,6 @@ class App extends Component {
 export default App;
 
 /*          <Route exact path="/" component={Home} />
+
+            I changed the className container per appcontainer
 */
