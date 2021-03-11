@@ -84,7 +84,11 @@ class Channel extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} dimension="sentiment" />
+                <Barchart
+                  data={filteredData}
+                  dimension="sentiment"
+                  title="sentiment"
+                />
               </Col>
               <Col
                 className="BarChartCol"
@@ -94,29 +98,7 @@ class Channel extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} dimension="joy" />
-              </Col>
-            </Row>
-            <Row className="BarChartRow">
-              <Col
-                className="BarChartCol"
-                xs={12}
-                sm={12}
-                md={12}
-                lg={12}
-                xl={6}
-              >
-                <Barchart data={filteredData} dimension="anger" />
-              </Col>
-              <Col
-                className="BarChartCol"
-                xs={12}
-                sm={12}
-                md={12}
-                lg={12}
-                xl={6}
-              >
-                <Barchart data={filteredData} dimension="fear" />
+                <Barchart data={filteredData} dimension="joy" title="joy" />
               </Col>
             </Row>
             <Row className="BarChartRow">
@@ -128,7 +110,7 @@ class Channel extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} dimension="sadness" />
+                <Barchart data={filteredData} dimension="anger" title="anger" />
               </Col>
               <Col
                 className="BarChartCol"
@@ -138,7 +120,37 @@ class Channel extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} dimension="disgust" />
+                <Barchart data={filteredData} dimension="fear" title="fear" />
+              </Col>
+            </Row>
+            <Row className="BarChartRow">
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart
+                  data={filteredData}
+                  dimension="sadness"
+                  title="sadness"
+                />
+              </Col>
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart
+                  data={filteredData}
+                  dimension="disgust"
+                  title="disgust"
+                />
               </Col>
             </Row>
           </Container>

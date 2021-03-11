@@ -23,17 +23,15 @@ const colors = {
 
 function Barchart(props) {
   const data = props.data;
-  console.log(data);
   const dataAvailable = data.length ? true : false;
   const dimension = props.dimension;
+  const title = props.title;
   const domain = dimension == "sentiment" ? [-1.0, +1.0] : [0, 1];
 
   return (
     <div>
       <p>
-        <strong>
-          {dimension.charAt(0).toUpperCase() + dimension.slice(1)}
-        </strong>
+        <strong>{title.charAt(0).toUpperCase() + title.slice(1)} </strong>
       </p>
       {dataAvailable ? (
         <BarChart width={550} height={250} data={data}>
