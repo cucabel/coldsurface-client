@@ -39,7 +39,7 @@ function Barchart(props) {
         <BarChart width={550} height={250} data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="day" />
-          <YAxis type="number" domanain={domain} />
+          <YAxis type="number" domain={domain} />
           <Tooltip />
           <Legend />
           <Bar dataKey={dimension} fill={colors[dimension]} />

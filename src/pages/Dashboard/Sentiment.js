@@ -1,8 +1,10 @@
-import React, { Component } from 'react'
+// need to rename to workspace
 
-import { statistics } from '../../context/statistics-context';
-import {Container, Row, Col, Dropdown} from 'react-bootstrap'
-import Navbar from '../../components/Navbar/Navbar';
+import React, { Component } from "react";
+
+import { statistics } from "../../context/statistics-context";
+import { Container, Row, Col, Dropdown } from "react-bootstrap";
+import Navbar from "../../components/Navbar/Navbar";
 
 class Sentiment extends Component {
   render() {
@@ -22,7 +24,7 @@ class Sentiment extends Component {
           </Dropdown.Menu>
         </Dropdown>
       </div>
-    )
+    );
   }
 }
 
