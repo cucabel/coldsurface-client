@@ -55,7 +55,7 @@ function Home() {
             </Link>
             <div className="article-text">
               <p>
-                Compare the sentiment and number of messages with workplace
+                Compare the sentiment and number of messages with a workplace
                 deep-dive.
               </p>
             </div>
