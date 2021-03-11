@@ -17,18 +17,11 @@ body {
   margin: 0;
 }
 
-<<<<<<< HEAD
 .navbar2 { 
   height: 66px;;
   background-color: rgba(0, 0, 0, .06);
   padding: 10px;
   display: flex;
-=======
-.navbar {
-  display: flex;
-  /* padding: 0px 20px; */
-  background-color: rgba(0, 0, 0, 0.06);
->>>>>>> cc4d2b9188135953a038e9bd44fa4e8cfb5da171
   justify-content: flex-end;
 }
 
@@ -56,17 +49,8 @@ button.navbar-button {
   position: relative;
 }
 
-<<<<<<< HEAD
 .frozenbackground {
   background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url('./images/frozen.jpeg');
-=======
-.frozenlog {
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.7),
-      rgba(255, 255, 255, 0.7)
-    ),
-    url("./images/frozen.jpeg");
->>>>>>> cc4d2b9188135953a038e9bd44fa4e8cfb5da171
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
