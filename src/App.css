@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   /* overflow: hidden; */
@@ -9,18 +10,25 @@ html, body {
 }
 
 .App {
-  padding: 20px;;
+  padding: 20px;
 }
 
 .appcontainer {
   margin: 0;
 }
 
+<<<<<<< HEAD
 .navbar2 { 
   height: 66px;;
   background-color: rgba(0, 0, 0, .06);
   padding: 10px;
   display: flex;
+=======
+.navbar {
+  display: flex;
+  /* padding: 0px 20px; */
+  background-color: rgba(0, 0, 0, 0.06);
+>>>>>>> cc4d2b9188135953a038e9bd44fa4e8cfb5da171
   justify-content: flex-end;
 }
 
@@ -39,7 +47,7 @@ button.navbar-button {
 }
 
 .frozen {
-  background-image: url('./images/frozen.jpeg');
+  background-image: url("./images/frozen.jpeg");
   height: 90vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -48,8 +56,17 @@ button.navbar-button {
   position: relative;
 }
 
+<<<<<<< HEAD
 .frozenbackground {
   background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url('./images/frozen.jpeg');
+=======
+.frozenlog {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("./images/frozen.jpeg");
+>>>>>>> cc4d2b9188135953a038e9bd44fa4e8cfb5da171
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -66,7 +83,7 @@ button.navbar-button {
 
 .img-fluid {
   max-width: 100%;
-  height: auto; 
+  height: auto;
 }
 
 .logincontainer {
@@ -105,6 +122,7 @@ button.navbar-button {
   align-items: center;
 }
 
+<<<<<<< HEAD
 #loginbutton {
   width: 100%;
 }
@@ -142,3 +160,14 @@ button.navbar-button {
 #number {
   font-size: 10em;
 }
+=======
+.BarChartRow {
+  display: flex;
+  justify-content: center;
+}
+
+.BarChartCol {
+  display: flex;
+  justify-content: center;
+}
+>>>>>>> cc4d2b9188135953a038e9bd44fa4e8cfb5da171
