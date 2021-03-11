@@ -1,11 +1,11 @@
 // import { Link } from 'react-router-dom';
 import { statistics } from "./../../context/statistics-context";
 
-import Dashboard from "../../components/Dashboard/Dashboard";
+import Barchart from "../../components/Barchart/Barchart";
 
 import React, { Component } from "react";
 import Navbar from "../../components/Navbar/Navbar";
-import { Dropdown, DropdownButton } from "react-bootstrap";
+import { Dropdown, DropdownButton, Row, Col, Container } from "react-bootstrap";
 import { RadialBarChart } from "recharts";
 
 class Channel extends Component {
@@ -21,7 +21,12 @@ class Channel extends Component {
 
   render() {
     const data = this.props.statistics.raw;
+    if (!data) return <p>Loading...</p>;
     const channels = this.props.statistics.channels;
+    const filteredData = data
+      .filter((el) => el.channel === this.state.channel)
+      .slice(0, 14);
+
     return (
       <div>
         <Navbar />
@@ -39,7 +44,74 @@ class Channel extends Component {
               </Dropdown.Item>
             ))}
           </DropdownButton>
-          <Dashboard data={data.filter((el) => el.channel === "C01Q5F1V7E1")} />
+          <Container fluid>
+            <Row className="BarChartRow">
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart data={filteredData} />
+              </Col>
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart data={filteredData} />
+              </Col>
+            </Row>
+            <Row className="BarChartRow">
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart data={filteredData} />
+              </Col>
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart data={filteredData} />
+              </Col>
+            </Row>
+            <Row className="BarChartRow">
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart data={filteredData} />
+              </Col>
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart data={filteredData} />
+              </Col>
+            </Row>
+          </Container>
         </div>
       </div>
     );
