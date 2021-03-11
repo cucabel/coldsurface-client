@@ -43,11 +43,16 @@ class Channel extends Component {
             title="workspace"
             onSelect={this.handleWorkSpaceInput}
           >
-            {channels.map((element) => (
+          {channels.filter((v, i, a) => a.indexOf(v.workspace) === i).map((element) => (
               <Dropdown.Item eventKey={element.workspace}>
                 {element.workspace}
               </Dropdown.Item>
             ))}
+            {/* {channels.map((element) => ( line 59 
+              <Dropdown.Item eventKey={element.workspace}>
+                {element.workspace}
+              </Dropdown.Item>
+            ))} */}
           </DropdownButton>
           <DropdownButton
             id="channel"
@@ -55,7 +60,7 @@ class Channel extends Component {
             title="channel"
             onSelect={this.handleChannelInput}
           >
-            {channels.map((element) => (
+            {channels.map((element) => (  
               <Dropdown.Item eventKey={element.channelId}>
                 {element.channelId}
               </Dropdown.Item>

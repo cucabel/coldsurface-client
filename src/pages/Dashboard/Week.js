@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { statistics } from '../../context/statistics-context';
 
-import {Container, Row, Col, Dropdown} from 'react-bootstrap'
+import {Container, Row, Col, Dropdown, DropdownButton} from 'react-bootstrap'
 import Navbar from '../../components/Navbar/Navbar';
 
 class Week extends Component {
@@ -21,16 +21,6 @@ class Week extends Component {
             <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-        {/* <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown button
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </div> */}
       </div>
     )
   }

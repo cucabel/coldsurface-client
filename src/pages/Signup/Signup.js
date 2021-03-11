@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from './../../context/auth-context';
+import {Container, Row, Col, Form, Button} from 'react-bootstrap';
 
 class Signup extends Component {
   state = { username: "", email: "", password: "" };
@@ -20,69 +21,49 @@ class Signup extends Component {
   render() {
     const { username, email, password } = this.state;
     return (
-      <div className="frozenlog">
+      <div className="frozenbackground">
         <div className="row justify-content-center my-3">
           <Link className="navbar-brand text-center" to={"/"} ><b>Coldsurface</b></Link>
         </div>
 
-        <div className="container mb-4">
-          <form onSubmit={this.handleFormSubmit} id="signUpFormId">
-            <div className="form-row justify-content-center">
-              <div className="col-sm-2 col-md-3 col-lg-4"></div>
-              <div className="col-sm-8 col-md-6 col-lg-4">
-                <div className="container py-4 mb-4 border border-light">
-                  <div className="form-group">
-                    <label for="inputName">User name:</label>
-                    <input type="text" name="username" className="form-control" id="inputName" placeholder="Enter name" value={username} onChange={this.handleChange} />
-                    <div className="invalid-feedback" id="errorName"></div>
-                  </div>
+        <Container>
 
-                  <div className="form-group">
-                    <label for="inputEmail">Email:</label>
-                    <input type="email" name="email" className="form-control" id="inputEmail" value={email} onChange={this.handleChange} />
-                    <div className="invalid-feedback" id="errorEmail"></div>
-                  </div>
+          <Row className="row justify-content-center">
 
-                  <div className="form-group">
-                    <label for="inputPassword">Password:</label>
-                    <input type="password" name="password" className="form-control" id="inputPassword" placeholder="Enter password" value={password} onChange={this.handleChange} />
-                    <div className="invalid-feedback" id="errorPassword"></div>
-                  </div>
+            <Col xs={8} sm={8} md={6} lg={4} className="border border-light">
 
-                  <input type="submit" value="Signup" className="btn btn-block btn-light my-4" />
+              <Form onSubmit={this.handleFormSubmit}>
 
-                  <p className="text-center"> Already have an account? <Link to={"/login"}><b>Login</b></Link> </p>
-     
-                </div>
-              </div>
-              <div className="col-sm-2 col-md-3 col-lg-4"></div>
-            </div>
-          </form>
-        </div>
+                <Form.Group controlId="formBasicEmail">
+                  <Form.Label className="my-2">Username</Form.Label>
+                  <Form.Control type="text" name="username" placeholder="Enter name" placeholder="Enter name" value={username} onChange={this.handleChange} />
+                </Form.Group>
+
+                <Form.Group controlId="formBasicPassword">   
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control type="email" name="email" placeholder="Enter email" value={email} onChange={this.handleChange} />
+                </Form.Group>
+
+                <Form.Group controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type="password" name="password" placeholder="Password" value={password} onChange={this.handleChange} />
+                </Form.Group>
+
+                <Button className="my-3" id="loginbutton" variant="light" type="submit">Signup</Button>
+
+                <p className="text-center my-2"> Already have an account? <Link to={"/login"}><b>Login</b></Link> </p>
+
+              </Form>
+
+            </Col>
+
+          </Row>
+
+        </Container>
+
       </div>
     );
   }
 }
 
 export default withAuth(Signup);
-
-// const EnhancedSignup = withAuth(Signup)
-// export default EnhancedSignup;
-
-/*
-        <h1>Sign Up</h1>
-
-        <form onSubmit={this.handleFormSubmit}>
-
-          <label>Username:</label>
-          <input type="text" name="username" value={username} onChange={this.handleChange} />
-
-          <label>Password:</label>
-          <input type="password" name="password" value={password} onChange={this.handleChange} />
-
-          <input type="submit" value="Signup" />
-        </form>
-        
-        <p>Already have account?</p>
-        <Link to={"/login"}> Login</Link> 
-*/
