@@ -1,25 +1,15 @@
 // import { Link } from 'react-router-dom';
 import { statistics } from "./../../context/statistics-context";
 
-<<<<<<< HEAD
-import {Container, Row, Col, Dropdown} from 'react-bootstrap'
 import Navbar2 from '../../components/Navbar/Navbar';
 import KPI from '../../components/KPI/KPI';
-=======
-<<<<<<< HEAD
 import {Container, Row, Col, Dropdown, DropdownButton} from 'react-bootstrap'
-import Navbar from '../../components/Navbar/Navbar';
-=======
 import Barchart from "../../components/Barchart/Barchart";
 
 import React, { Component } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import { Dropdown, DropdownButton, Row, Col, Container } from "react-bootstrap";
 import { RadialBarChart } from "recharts";
 
 import KPI from "../../components/KPI/KPI";
->>>>>>> 29d394758a4175abff00a28071f8b567c9f9f4e1
->>>>>>> develop
 
 class Week extends Component {
   state = {
@@ -63,13 +53,7 @@ class Week extends Component {
 
     return (
       <div>
-<<<<<<< HEAD
         <Navbar2 />
-=======
-        <Navbar />
-<<<<<<< HEAD
->>>>>>> develop
-
         <Dropdown>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
             Dropdown Button
@@ -81,35 +65,7 @@ class Week extends Component {
             <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-<<<<<<< HEAD
-          <Container fluid>
-            <Row className="WeekRow">
-              <Col className="WeekCol" xs={12} sm={12} md={12} lg={12} xl={6}>
-                <KPI />
-              </Col>
-              <Col className="WeekCol" xs={12} sm={12} md={12} lg={12} xl={6}>
-                <KPI />
-              </Col>
-            </Row>
-            <Row className="WeekRow">
-              <Col className="WeekCol" xs={12} sm={12} md={12} lg={12} xl={6}>
-                <KPI />
-              </Col>
-              <Col className="WeekCol" xs={12} sm={12} md={12} lg={12} xl={6}>
-                <KPI />
-              </Col>
-            </Row>
-            <Row className="WeekRow">
-              <Col className="WeekCol" xs={12} sm={12} md={12} lg={12} xl={6}>
-                <KPI />
-              </Col>
-              <Col className="WeekCol" xs={12} sm={12} md={12} lg={12} xl={6}>
-                <KPI />
-              </Col>
-            </Row>
-          </Container>
-=======
-=======
+
         <div>
           <DropdownButton
             id="workspace"
@@ -206,8 +162,6 @@ class Week extends Component {
             </Row>
           </Container>
         </div>
->>>>>>> 29d394758a4175abff00a28071f8b567c9f9f4e1
->>>>>>> develop
       </div>
     );
   }
