@@ -10,8 +10,9 @@ import { RadialBarChart } from "recharts";
 
 class Channel extends Component {
   state = {
-    workspace: "",
-    channel: "",
+    workspace: "Select Workspace",
+    channel: "Select Channel",
+    channelName: "",
   };
 
   handleWorkSpaceInput = (e) => {
@@ -20,44 +21,68 @@ class Channel extends Component {
   };
 
   handleChannelInput = (e) => {
-    this.setState({ channel: e });
+    const channels = this.props.statistics.channels;
+    const channelName = channels.find((el) => el.channelId === e).name;
+    this.setState({ channel: e, channelName: channelName });
     console.log("channel :", e);
+  };
+
+  getUniqueWorkSpaces = (channels) => {
+    // console.log(channels);   // TO BE FIXED
+    // const uniqueWPs = channels.filter(
+    //   (v, i, a) => a.indexOf(v.workspace) === i
+    // );
+    // //.map((element) => element.workspace);
+    // console.log(uniqueWPs);
+    // return uniqueWPs;
+    return ["KAGGLE", "ih-bcn-web-jan2021", "ih-bcn-web-oct2020"];
   };
 
   render() {
     const data = this.props.statistics.raw;
     if (!data) return <p>Loading...</p>;
-    const channels = this.props.statistics.channels;
-    const filteredData = data
-      .filter((el) => el.channel === this.state.channel)
-      .slice(0, 14);
+    console.log(data.slice(0, 2)); // ih-bcn-web-oct2020 channel and workspace
+    const channels = this.props.statistics.channels.filter(
+      (el) => el.workspace === this.state.workspace
+    );
+    const filteredData = data.filter((el) => el.channel === this.state.channel);
+    // .slice(0, 14);
 
     return (
       <div>
         <Navbar />
-        <p>{this.state.channel}</p>
         <div>
           <DropdownButton
             id="workspace"
             name="workspace"
-            title="workspace"
+            title={this.state.workspace}
             onSelect={this.handleWorkSpaceInput}
           >
-            {channels.map((element) => (
+<<<<<<< HEAD
+          {channels.filter((v, i, a) => a.indexOf(v.workspace) === i).map((element) => (
               <Dropdown.Item eventKey={element.workspace}>
                 {element.workspace}
               </Dropdown.Item>
+=======
+            {this.getUniqueWorkSpaces(channels).map((element) => (
+              <Dropdown.Item eventKey={element}>{element}</Dropdown.Item>
+>>>>>>> 29d394758a4175abff00a28071f8b567c9f9f4e1
             ))}
+            {/* {channels.map((element) => ( line 59 
+              <Dropdown.Item eventKey={element.workspace}>
+                {element.workspace}
+              </Dropdown.Item>
+            ))} */}
           </DropdownButton>
           <DropdownButton
             id="channel"
             name="channel"
-            title="channel"
+            title={this.state.channelName}
             onSelect={this.handleChannelInput}
           >
-            {channels.map((element) => (
+            {channels.map((element) => (  
               <Dropdown.Item eventKey={element.channelId}>
-                {element.channelId}
+                {element.name}
               </Dropdown.Item>
             ))}
           </DropdownButton>
@@ -71,7 +96,11 @@ class Channel extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} dimension="sentiment" />
+                <Barchart
+                  data={filteredData}
+                  dimension="sentiment"
+                  title="sentiment"
+                />
               </Col>
               <Col
                 className="BarChartCol"
@@ -81,29 +110,7 @@ class Channel extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} dimension="joy" />
-              </Col>
-            </Row>
-            <Row className="BarChartRow">
-              <Col
-                className="BarChartCol"
-                xs={12}
-                sm={12}
-                md={12}
-                lg={12}
-                xl={6}
-              >
-                <Barchart data={filteredData} dimension="anger" />
-              </Col>
-              <Col
-                className="BarChartCol"
-                xs={12}
-                sm={12}
-                md={12}
-                lg={12}
-                xl={6}
-              >
-                <Barchart data={filteredData} dimension="fear" />
+                <Barchart data={filteredData} dimension="joy" title="joy" />
               </Col>
             </Row>
             <Row className="BarChartRow">
@@ -115,7 +122,7 @@ class Channel extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} dimension="sadness" />
+                <Barchart data={filteredData} dimension="anger" title="anger" />
               </Col>
               <Col
                 className="BarChartCol"
@@ -125,7 +132,37 @@ class Channel extends Component {
                 lg={12}
                 xl={6}
               >
-                <Barchart data={filteredData} dimension="disgust" />
+                <Barchart data={filteredData} dimension="fear" title="fear" />
+              </Col>
+            </Row>
+            <Row className="BarChartRow">
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart
+                  data={filteredData}
+                  dimension="sadness"
+                  title="sadness"
+                />
+              </Col>
+              <Col
+                className="BarChartCol"
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={6}
+              >
+                <Barchart
+                  data={filteredData}
+                  dimension="disgust"
+                  title="disgust"
+                />
               </Col>
             </Row>
           </Container>

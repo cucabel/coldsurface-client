@@ -63,4 +63,13 @@ export default withAuth(Navbar2);
           </>
         )}
       </nav>
+<<<<<<< HEAD
     );*/
+=======
+    );
+  }
+}
+
+export default withAuth(Navbar);
+
+>>>>>>> develop

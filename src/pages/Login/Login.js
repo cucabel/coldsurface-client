@@ -47,8 +47,8 @@ class Login extends Component {
 
                 <Button id="loginbutton" variant="light" type="submit">Login</Button>
 
-                <p className="text-center my-3">Already have an account?
-                  <Link type="button" class="btn btn-block btn-light my-3" role="button" to={"/signup"}>Sign Up</Link> 
+                <p className="text-center my-3">Sign Up
+                  <Link type="button" class="btn btn-block btn-light my-3" role="button" to={"/signup"}>Create your account</Link> 
                 </p>
 
               </Form>
@@ -64,3 +64,7 @@ class Login extends Component {
 }
 
 export default withAuth(Login);
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
